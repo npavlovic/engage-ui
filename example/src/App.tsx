@@ -18,6 +18,8 @@ import {
   Panel,
   Picker,
   Checkbox,
+  Popover,
+  Card,
 } from '../../src/components';
 
 interface State {
@@ -40,6 +42,10 @@ class App extends React.Component<{}, State> {
 
   chipRemove = () => {
     console.log('chip removed...');
+  }
+
+  PopClose = () => {
+    console.log('popover close');
   }
 
   render() {
@@ -79,6 +85,7 @@ const theme = {
 
     return (
       <div>
+
         <Picker required={true}
         chipComponent={Chip}
         filterPlaceHolder="People"
@@ -156,6 +163,16 @@ const theme = {
         <div>Demo 3</div>
       </FlexBox>
       <br />
+
+        <Popover
+          active
+          activator={<Button>More actions</Button>}
+          onClose={this.PopClose}
+        >
+          <Card title="Batman">
+            <p>Some Stuff</p>
+          </Card>
+        </Popover>
 
       <div>
         <br/>
