@@ -154,3 +154,4 @@ const Icon = ({
 }
 
 export default themr(ICON, baseTheme)(Icon) as ThemedComponentClass<Props, {}>;
+export { Icon as UnthemedIcon };

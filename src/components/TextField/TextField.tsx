@@ -255,3 +255,4 @@ function normalizeAutoComplete(autoComplete?: boolean) {
 }
 
 export default themr(TEXT_FIELD, baseTheme)(TextField) as ThemedComponentClass<Props, State>;
+export {TextField as UnthemedTextField}

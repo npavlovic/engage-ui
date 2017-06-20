@@ -14,7 +14,7 @@ export interface Props {
   label: string,
   error?: Error,
   labelHidden?: boolean,
-  children?: string,
+  children?: React.ReactNode,
   helpText?: React.ReactNode,
   theme?: any,
 }
@@ -77,3 +77,4 @@ export function errorID(id: string) {
 }
 
 export default themr(CHOICE, baseTheme)(Choice) as ThemedComponentClass<Props, {}>;
+export {Choice as UnthemedChoice}

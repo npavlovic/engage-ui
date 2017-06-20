@@ -157,3 +157,4 @@ export function buttonFrom(
 }
 
 export default ThemedButton
+export { Button as UnthemedButton }

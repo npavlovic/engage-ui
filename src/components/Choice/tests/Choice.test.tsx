@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
-import Choice from '..';
+import {UnthemedChoice as Choice} from '../Choice';
 
 describe('<Choice />', () => {
   it('uses the id as the for attribute of a label', () => {

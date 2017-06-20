@@ -100,3 +100,4 @@ function updateSelectedChoices({value}: Choice, checked: boolean, selected: stri
 }
 
 export default themr(CHOICE_LIST, baseTheme)(ChoiceList) as ThemedComponentClass<Props, {}>;
+export {ChoiceList as UnthemedChoiceList}

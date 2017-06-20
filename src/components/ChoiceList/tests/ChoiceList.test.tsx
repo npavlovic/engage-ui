@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {shallow, mount, ReactWrapper} from 'enzyme';
 
-import ChoiceList from '..';
+import {UnthemedChoiceList as ChoiceList} from '..';
 import RadioButton from '../../RadioButton';
 import Checkbox from '../../Checkbox';
 

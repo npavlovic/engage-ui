@@ -71,3 +71,4 @@ const RadioButton = ({
 }
 
 export default themr(RADIO_BUTTON, baseTheme)(RadioButton) as ThemedComponentClass<Props, {}>;
+export {RadioButton as UnthemedRadioButton}
