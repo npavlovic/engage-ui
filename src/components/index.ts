@@ -74,6 +74,10 @@ export {
 } from './FormLayout';
 
 export {
+  default as DataGrid,
+} from './DataGrid';
+
+export {
   default as Heading,
   Props as HeadingProps,
 } from './Heading';
@@ -221,3 +225,7 @@ export {
   Props as VisuallyHiddenProps,
 } from './VisuallyHidden';
 
+export {
+  default as Grid,
+  Row, Cell, HeaderCell, EmptyChildRow, editors, utils, shapes, _constants, _helpers, RowComparer, RowsContainer
+} from './DataGrid';
