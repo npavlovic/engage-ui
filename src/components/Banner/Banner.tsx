@@ -1,5 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
 import { themr } from 'react-css-themr';
+=======
+import { themr, ThemedComponentClass } from 'react-css-themr';
+>>>>>>> emgage/master
 import {classNames, variationName} from '@shopify/react-utilities/styles';
 
 import {Action} from '../../types';
@@ -164,4 +168,8 @@ function secondaryActionFrom(action: Action, theme: any) {
   );
 }
 
+<<<<<<< HEAD
 export default themr(BANNER, baseTheme)(Banner);
+=======
+export default themr(BANNER, baseTheme)(Banner) as ThemedComponentClass<Props, {}>;
+>>>>>>> emgage/master

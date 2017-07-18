@@ -1,5 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
 import { themr } from 'react-css-themr';
+=======
+import { themr, ThemedComponentClass } from 'react-css-themr';
+>>>>>>> emgage/master
 
 import Icon from '../Icon/';
 import { TAG } from '../ThemeIdentifiers';
@@ -32,4 +36,8 @@ function handleMouseUp({currentTarget}: React.MouseEvent<HTMLButtonElement>) {
   currentTarget.blur();
 }
 
+<<<<<<< HEAD
 export default themr(TAG, baseTheme)(Tag);
+=======
+export default themr(TAG, baseTheme)(Tag) as ThemedComponentClass<Props, {}>;
+>>>>>>> emgage/master

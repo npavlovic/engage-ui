@@ -1,5 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
 import { themr } from 'react-css-themr';
+=======
+import { themr, ThemedComponentClass } from 'react-css-themr';
+>>>>>>> emgage/master
 import {layeredComponent} from '@shopify/react-utilities/components';
 import autobind from '@shopify/javascript-utilities/autobind';
 import {noop, createUniqueIDFactory} from '@shopify/javascript-utilities/other';
@@ -133,4 +137,8 @@ class Tooltip extends React.PureComponent<Props, State> {
   }
 }
 
+<<<<<<< HEAD
 export default themr(TOOLTIP, baseTheme)(Tooltip);
+=======
+export default themr(TOOLTIP, baseTheme)(Tooltip) as ThemedComponentClass<Props, {}>;
+>>>>>>> emgage/master
