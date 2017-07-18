@@ -6,6 +6,8 @@ import {focusFirstFocusableNode, findFirstFocusableNode} from '@shopify/javascri
 
 import {PreferredPosition} from '../PositionedOverlay';
 import PopoverOverlay, {CloseSource} from './PopoverOverlay';
+import Pane from './Pane';
+import Section from './Section';
 
 export interface Props {
   children?: React.ReactNode,
@@ -15,7 +17,7 @@ export interface Props {
   activatorWrapper?: string,
   preventAutofocus?: boolean,
   sectioned?: boolean,
-  onClose?(source: CloseSource): void,
+  onClose(source: CloseSource): void,
 }
 
 export interface State {
@@ -26,6 +28,8 @@ const getUniqueID = createUniqueIDFactory('Popover');
 
 @layeredComponent({idPrefix: 'Popover'})
 export default class Popover extends React.PureComponent<Props, State> {
+  static Pane = Pane;
+  static Section = Section;
 
   state: State = {
     activatorFocused: false,
@@ -94,9 +98,7 @@ export default class Popover extends React.PureComponent<Props, State> {
 
   @autobind
   private handleClose(source: CloseSource) {
-    if (!!this.props.onClose) {
-      this.props.onClose(source);
-    }
+    this.props.onClose(source);
 
     if (this.activatorContainer == null) { return; }
     if (

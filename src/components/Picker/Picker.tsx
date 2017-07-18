@@ -3,6 +3,8 @@ import { themr, ThemedComponentClass } from 'react-css-themr';
 import { PICKER } from '../ThemeIdentifiers';
 import TextField from '../TextField';
 import { DisplayMoreInfo } from './PickerEnum';
+import { IPickerInfo } from './IPickerInfo';
+import { IPickerSource } from './IPickerSource';
 
 import * as baseTheme from './Picker.scss';
 
@@ -11,16 +13,6 @@ export interface State {
     searchItems: IPickerInfo[],
     selectedItems: IPickerInfo[],
     moreInfo: boolean,
-}
-export interface IPickerInfo {
-    Id?: number,
-    Name: string,
-    Description: string,
-    ImageUrl?: string,
-    Url?: string,
-}
-export interface IPickerSource<T> {
-    performFilter(filterString: string): Promise<T[]>,
 }
 export type Type = 'hide' | 'mark';
 export interface Props {
@@ -68,6 +60,7 @@ class Picker extends React.Component<Props, State> {
             onRemove = this.handleRemove,
             onMoreInfo = this.handleMoreInfo,
             theme,
+            style,
           } = this.props;
         let className = '';
         if (selectedResultsBehavior === 'hide') {
@@ -76,7 +69,7 @@ class Picker extends React.Component<Props, State> {
             className = theme.pickerResultShow;
         }
         return (
-            <div>
+            <div style={style}>
                 <div>
                     <div className={className}>
                         {
@@ -153,6 +146,5 @@ class Picker extends React.Component<Props, State> {
     }
 }
 
-export { Picker as UnthemedPicker };
 export default themr(PICKER, baseTheme)(Picker) as ThemedComponentClass<Props, State>;
 

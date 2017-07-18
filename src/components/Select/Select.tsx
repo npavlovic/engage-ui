@@ -145,5 +145,4 @@ function renderGroup(groupOrOption: Group | Option) {
   return renderOption(groupOrOption as Option);
 }
 
-export { Select as UnthemedSelect };
 export default themr(SELECT, baseTheme)(Select) as ThemedComponentClass<Props, {}>;

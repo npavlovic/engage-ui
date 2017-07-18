@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import RadioButton from '..';
 
 describe('<RadioButton />', () => {
   it('sets all pass through properties on the input', () => {
-    const input = mount(
+    const input = shallow(
       <RadioButton
         label="RadioButton"
         checked
@@ -48,12 +48,12 @@ describe('<RadioButton />', () => {
 
   describe('id', () => {
     it('sets the id on the input', () => {
-      const id = mount(<RadioButton id="MyRadioButton" label="RadioButton" />).find('input').prop('id');
+      const id = shallow(<RadioButton id="MyRadioButton" label="RadioButton" />).find('input').prop('id');
       expect(id).toBe('MyRadioButton');
     });
 
     it('sets a random id on the input when none is passed', () => {
-      const id = mount(<RadioButton label="RadioButton" />).find('input').prop('id');
+      const id = shallow(<RadioButton label="RadioButton" />).find('input').prop('id');
       expect(typeof id).toBe('string');
       expect(id).toBeTruthy();
     });
@@ -61,15 +61,15 @@ describe('<RadioButton />', () => {
 
   describe('disabled', () => {
     it('sets the disabled attribute on the input', () => {
-      const button = mount(<RadioButton label="RadioButton" disabled />);
+      const button = shallow(<RadioButton label="RadioButton" disabled />);
       expect(button.find('input').prop('disabled')).toBe(true);
     });
 
     it('is only disabled when disabled is explicitly set to true', () => {
-      let element = mount(<RadioButton label="RadioButton" />);
+      let element = shallow(<RadioButton label="RadioButton" />);
       expect(element.find('input').prop('disabled')).toBeFalsy();
 
-      element = mount(<RadioButton label="RadioButton" disabled={false} />);
+      element = shallow(<RadioButton label="RadioButton" disabled={false} />);
       expect(element.find('input').prop('disabled')).toBeFalsy();
     });
   });

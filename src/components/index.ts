@@ -49,16 +49,6 @@ export {
 } from './ChoiceList';
 
 export {
-  default as ClickableChip,
-  Props as ClickableChipProps,
-} from './ClickableChip';
-
-export {
-  default as Column,
-  Props as ColumnProps,
-} from './Column';
-
-export {
   default as Connected,
   Props as ConnectedProps,
 } from './Connected';
@@ -122,11 +112,6 @@ export {
   default as List,
   Props as ListProps,
 } from './List';
-
-export {
-  default as Loading,
-  Props as LoadingProps,
-} from './Loading';
 
 export {
   default as Message,
@@ -220,7 +205,3 @@ export {
   default as VisuallyHidden,
   Props as VisuallyHiddenProps,
 } from './VisuallyHidden';
-<<<<<<< HEAD
-=======
-
->>>>>>> emgage/master

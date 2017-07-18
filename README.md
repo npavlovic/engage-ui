@@ -1,12 +1,15 @@
-# Engage-UI  [![Build Status](https://travis-ci.org/emgage/engage-ui.svg?branch=master)](https://travis-ci.org/emgage/engage-ui)
+# Engage-UI
 
 #### Engage-UI is a React component library designed to help developers and designers creater the delightful web experiences.
 
 ### Installation:
 NPM Package support needs to be added.
 
+### Usage
+TODO
+
 ## Examples
-Example application is hosted in `./example/src` and can be run through `npm run dev`.
+TODO
 
 ## Licenses
 * Source code is licensed under [MIT](https://opensource.org/licenses/MIT)

@@ -30,46 +30,49 @@ describe('<Button />', () => {
   describe('disabled', () => {
     it('sets the disabled attribute on the button', () => {
       const button = shallow(<Button disabled>Disabled test</Button>);
-      expect(button.prop('disabled')).toBe(true);
+      expect(button.find('button').prop('disabled')).toBe(true);
     });
 
     it('sets the disabled attribute on the button', () => {
       const button = shallow(<Button disabled={false}>Disabled test</Button>);
-      expect(button.prop('disabled')).toBeFalsy();
+      expect(button.find('button').prop('disabled')).toBeFalsy();
     });
   });
 
   describe('style', () => {
     it('sets the style attribute on the button to color: red ', () => {
       const button = shallow(<Button style={{color: 'red'}}>Disabled test</Button>);
-      expect(button.prop('style')).toMatchObject({ color: 'red' });
+      expect(button.find('button').prop('style')).toBe('color: red');
     });
 
-    it('sets the style attribute on the button to undefined', () => {
+    it('sets the style attribute on the button to null', () => {
       const button = shallow(<Button>Disabled test</Button>);
-      expect(button.prop('style')).toBeUndefined();
+      expect(button.find('button').prop('style')).toBeNull();
     });
   });
 
   describe('submit', () => {
     it('sets the button’s type to submit', () => {
       const button = shallow(<Button submit>Submit test</Button>);
-      expect(button.prop('submit')).toBe(true);
+      expect(button.find('button').prop('type')).toBe('submit');
     });
 
     it('sets the button’s type to button when submit is not true', () => {
       let button = shallow(<Button>Button test</Button>);
-      expect(button.prop('submit')).toBe(undefined);
+      expect(button.find('button').prop('type')).toBe('button');
 
       button = shallow(<Button submit={false}>Button test</Button>);
-      expect(button.prop('submit')).toBe(false);
+      expect(button.find('button').prop('type')).toBe('button');
     });
   });
 
   describe('accessibilityLabel', () => {
     it('sets the aria-label on the button', () => {
       const button = shallow(<Button accessibilityLabel="This deletes a thing" icon="delete" />);
-      expect(button.prop('accessibilityLabel')).toBe('This deletes a thing');
+
+      // For some reason, TSLint complains about needing to pass an explicit prop.
+      // tslint:disable-next-line
+      expect(button.find('button').prop('aria-label')).toBe('This deletes a thing');
     });
   });
 });
