@@ -25,6 +25,7 @@ export interface Props {
   placeholder?: string,
   value?: string,
   helpText?: React.ReactNode,
+  enableTextCouter?: boolean,  
   label: string,
   labelAction?: Action,
   labelHidden?: boolean,
@@ -79,6 +80,8 @@ class TextField extends React.PureComponent<Props, State> {
       labelAction,
       labelHidden,
       helpText,
+      enableTextCouter,      
+      maxLength,
       prefix,
       suffix,
       required,
@@ -125,6 +128,14 @@ class TextField extends React.PureComponent<Props, State> {
         />
       )
       : null;
+    
+    var counterTextMarkup;
+    if(enableTextCouter)
+    {
+      const maxLengthString = maxLength ? "/" + maxLength : '';
+      var textCount = this.props.value ? this.props.value.toString().length : 0;
+      counterTextMarkup = <div className={theme.CounterText} id={`${id}Counter`}>{textCount}{maxLengthString}</div>;
+    }
 
     const describedBy: string[] = [];
     if (errors) { describedBy.push(errorID(id)); }
@@ -186,6 +197,7 @@ class TextField extends React.PureComponent<Props, State> {
             {resizer}
           </div>
         </Connected>
+        {counterTextMarkup}
       </Labelled>
     );
   }
@@ -254,4 +266,5 @@ function normalizeAutoComplete(autoComplete?: boolean) {
   return autoComplete ? 'on' : 'off';
 }
 
+export { TextField as UnthemedTextField };
 export default themr(TEXT_FIELD, baseTheme)(TextField) as ThemedComponentClass<Props, State>;
