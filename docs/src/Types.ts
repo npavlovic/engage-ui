@@ -13,6 +13,7 @@ export interface IDocument {
   exampleComponent?: any;
   exampleCodeExtra?: string;
   exampleComponentExtra?: any;
+  text?: HTMLInputElement;
 }
 
 export interface IProperty {
