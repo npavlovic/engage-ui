@@ -50,6 +50,7 @@ export interface Props {
   spellCheck?: boolean;
   style?: React.CSSProperties;
   theme?: any;
+  validator?(rule: object, value: any, callback: (error?: Error) => void): void;
   onChange?(value: string): void;
   onFocus?(e?: any): void;
   onBlur?(e?: any): void;
@@ -90,6 +91,7 @@ class TextField extends React.PureComponent<Props, State> {
       onBlur,
       autoComplete,
       style,
+      validator,
       ...rest,
     } = this.props;
 
@@ -143,6 +145,8 @@ class TextField extends React.PureComponent<Props, State> {
     const labelledBy = [labelID(id)];
     if (prefix) { labelledBy.push(`${id}Prefix`); }
     if (suffix) { labelledBy.push(`${id}Suffix`); }
+
+    console.log('validator:', validator);
 
     const input = React.createElement(multiline ? 'textarea' : 'input', {
       ...rest,
@@ -237,6 +241,10 @@ class TextField extends React.PureComponent<Props, State> {
       focused: true,
     }));
 
+    // this.props.validator();
+
+    // something something validator
+
     const { onFocus } = this.props;
     if (onFocus == null) { return; }
     onFocus(e);
@@ -248,6 +256,8 @@ class TextField extends React.PureComponent<Props, State> {
       ...prevState,
       focused: false,
     }));
+
+    // something something validator
 
     const { onBlur } = this.props;
     if (onBlur == null) { return; }

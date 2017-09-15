@@ -35,6 +35,8 @@ class ValidatedTextFieldComponent extends React.PureComponent<Props, {}> {
         onBlur,
         ...otherProps,
     } = this.props;
+    console.log('otherProps', otherProps);
+    // console.log('validator:',validator);
     const initialValue = otherProps.value;
     const { ...otherFieldProps } = form.getFieldProps(this.props.name, {
       initialValue,
@@ -44,13 +46,16 @@ class ValidatedTextFieldComponent extends React.PureComponent<Props, {}> {
       rules: validateRules,
     });
 
+    if (otherProps.helpText === 'YOUR MOTHER!!') console.log('otherFieldProps:', otherFieldProps);
+
     return (
-        <TextField
-            {...otherProps}
-            {...otherFieldProps}
-            value={initialValue}
-            errors={form.getFieldError(this.props.name)}
-        />
+      <TextField
+        validator={validator}
+        {...otherProps}
+        {...otherFieldProps}
+        value={initialValue}
+        errors={form.getFieldError(this.props.name)}
+      />
     );
   }
 }
