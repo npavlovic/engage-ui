@@ -45,6 +45,12 @@ interface State {
   isMenuOpened: boolean;
 }
 
+function validator(rule: object, value: any, callback: (error?: Error) => void) {
+  console.log(rule);
+  console.log(value);
+  callback(new Error('Hello Error'));
+}
+
 class App extends React.Component<{}, State> {
   constructor(props: any) {
     super(props);
@@ -108,6 +114,22 @@ class App extends React.Component<{}, State> {
       <div>
         <SingleDatePickerWrapper />
         <DateRangePickerWrapper />
+        <ValidatedForm>
+          <ValidatedTextField
+            id="AppDescription"
+            required={true}
+            label="App Description"
+            placeholder=""
+            helpText="YOUR MOTHER!!"
+            onChange={this.valueUpdater('txtAppDesc')}
+            name="App Description"
+            value={'value'}
+            validateTrigger={['onBlur', 'onChange']}
+            validateRules={[{ required: true, message: 'App Description is required.' }]}
+            multiline
+            validator={validator}
+          />
+        </ValidatedForm>
         <OffCanvas activator={<Button>OffCanvas Test</Button>} mode={OffCanvasMode.slide}>
               <p>Placeholder content.</p>
               <ul>
