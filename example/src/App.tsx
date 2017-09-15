@@ -111,11 +111,11 @@ class App extends React.Component<{}, State> {
         <OffCanvas activator={<Button>OffCanvas</Button>} >
             <p>Reveal Test</p>
             <ul>
-              <li>Link 1</li>
-              <li>Link 2</li>
-              <li>Link 3</li>
-              <li>Link 4</li>
-              <li>Link 5</li>
+              <li><a>Link 1</a></li>
+              <li><a>Link 2</a></li>
+              <li><a>Link 3</a></li>
+              <li><a>Link 4</a></li>
+              <li><a>Link 5</a></li>
             </ul>
         </OffCanvas>
         <OffCanvas mode="slide" activator={<Button>OffCanvas Slide</Button>} >

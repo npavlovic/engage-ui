@@ -89,7 +89,7 @@ class OffCanvas extends React.PureComponent<Props, State> {
     }
 
     const bar = [
-      <div className={barClassName}>
+      <div className={barClassName} aria-live={true}>
         <OffCanvasContent
           id={id}
           activator={activatorNode}
@@ -154,6 +154,7 @@ class OffCanvas extends React.PureComponent<Props, State> {
 
     accessibilityNode.tabIndex = 0;
     accessibilityNode.setAttribute('aria-describedby', id);
+    accessibilityNode.setAttribute('aria-haspopup', 'true');
   }
 }
 
