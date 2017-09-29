@@ -35,6 +35,7 @@ export interface Props {
   activator: HTMLElement;
   theme?: any;
   onClose(source: CloseSource): void;
+  onKeyPress?(event: any): void;
 }
 
 class PopoverOverlay extends React.PureComponent<Props, never> {
@@ -142,7 +143,7 @@ class PopoverOverlay extends React.PureComponent<Props, never> {
     );
 
     return (
-      <div className={className} {...overlay.props} id={'look at me!!!!!!POPOSADFPSAOFPSAODF'}>
+      <div className={className} {...overlay.props} onKeyPress={this.props.onKeyPress}>
         <EventListener event="click" handler={this.handleClick} />
         <EventListener event="touchstart" handler={this.handleClick} />
         <KeypressListener keyCode={Keys.ENTER || Keys.SPACE} handler={this.handleClick} />

@@ -16,6 +16,7 @@ export interface Props {
   preventAutofocus?: boolean;
   sectioned?: boolean;
   onClose?(source: CloseSource): void;
+  onKeyPress?(event: any): void;
 }
 
 export interface State {
@@ -59,6 +60,7 @@ export default class Popover extends React.PureComponent<Props, State> {
     return (
       <PopoverOverlay
         id={this.id}
+        onKeyPress={this.props.onKeyPress}
         activator={this.activatorNode}
         onClose={this.handleClose}
         {...rest}

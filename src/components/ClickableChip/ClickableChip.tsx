@@ -8,6 +8,7 @@ export interface State {
   active: boolean;
 }
 export interface Props {
+  ariaLabel?: string;
   chip: React.ReactElement<any>;
   style?: React.CSSProperties;
   theme?: any;
@@ -30,10 +31,11 @@ class ClickableChip extends React.PureComponent<Props, State> {
             chip,
             onClick = this.handleClick,
             onKeyPress = this.onKeyPress,
+            ariaLabel = this.props.ariaLabel,
         } = this.props;
-    const updatedChip = React.cloneElement(chip, { onClick, onKeyPress, clickable: true });
+    const updatedChip = React.cloneElement(chip, { onClick, onKeyPress, ariaLabel, clickable: true });
     return (
-            <Popover active={this.state.active} activator={updatedChip} onClose={this.onClose}>
+            <Popover active={this.state.active} activator={updatedChip} onClose={this.onClose} onKeyPress={this.onKeyPress}>
                 {this.props.children}
             </Popover>
     );

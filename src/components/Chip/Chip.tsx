@@ -6,6 +6,7 @@ import { CHIP } from '../ThemeIdentifiers';
 import * as baseTheme from './Chip.scss';
 
 export interface Props {
+  ariaLabel?: string;
   clickable?: boolean;
   removable?: boolean;
   image?: {
@@ -22,6 +23,7 @@ export interface Props {
   onKeyPress?(event: any): void;
   onKeyPressRemove?(event: any): void;
   handleMoreInfo?(): void;
+
   key?: any;
   markedForDelete?: boolean;
 }
@@ -67,7 +69,7 @@ class Chip extends React.PureComponent<Props, any> {
         {
           clickable
             ?
-            <a onClick={this.props.onClick} onKeyPress={this.props.onKeyPress} aria-disabled={false} tabIndex={0}>
+            <a onClick={this.props.onClick} onKeyPress={this.props.onKeyPress} aria-disabled={false} tabIndex={0} aria-label={this.props.ariaLabel}>
                 {chipContents}
             </a>
             :
