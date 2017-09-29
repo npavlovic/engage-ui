@@ -142,9 +142,10 @@ class PopoverOverlay extends React.PureComponent<Props, never> {
     );
 
     return (
-      <div className={className} {...overlay.props}>
+      <div className={className} {...overlay.props} id={'look at me!!!!!!POPOSADFPSAOFPSAODF'}>
         <EventListener event="click" handler={this.handleClick} />
         <EventListener event="touchstart" handler={this.handleClick} />
+        <KeypressListener keyCode={Keys.ENTER || Keys.SPACE} handler={this.handleClick} />
         <KeypressListener keyCode={Keys.ESCAPE} handler={this.handleEscape} />
         {tipMarkup}
         <div className={theme.focusTracker} tabIndex={0} onFocus={this.handleFocusFirstItem} />

@@ -109,6 +109,11 @@ class App extends React.Component<{}, State> {
 
     return (
       <div>
+        <ClickableChip chip={<Chip>Spider Man</Chip>}>
+          <Card title="More about Spider Man">
+            <p>Spider Man is a fictional superhero who appears in American comic books published by DC Comics. He is amazing and shoots web.</p>
+          </Card>
+        </ClickableChip>
         <PickerAutoSuggestExample />
         <SingleDatePickerWrapper />
         <DateRangePickerWrapper />

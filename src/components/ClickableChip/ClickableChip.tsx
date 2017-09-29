@@ -12,6 +12,7 @@ export interface Props {
   style?: React.CSSProperties;
   theme?: any;
   onClick?(): void;
+  onKeyPress?(): void;
 }
 
 class ClickableChip extends React.PureComponent<Props, State> {
@@ -28,13 +29,17 @@ class ClickableChip extends React.PureComponent<Props, State> {
     const {
             chip,
             onClick = this.handleClick,
+            onKeyPress = this.onKeyPress,
         } = this.props;
-    const updatedChip = React.cloneElement(chip, { onClick, clickable: true });
+    const updatedChip = React.cloneElement(chip, { onClick, onKeyPress, clickable: true });
     return (
             <Popover active={this.state.active} activator={updatedChip} onClose={this.onClose}>
                 {this.props.children}
             </Popover>
     );
+  }
+  private onKeyPress = (e:any) => {
+    if (e.key === 'Enter' || e.key === 'Space') (this.setState({ ['active']: !this.state.active }));
   }
   private handleClick = () => {
     this.setState({ ['active']: !this.state.active });

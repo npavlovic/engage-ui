@@ -19,6 +19,8 @@ export interface Props {
   theme?: any;
   onRemove?(event: any): void;
   onClick?(event: any): void;
+  onKeyPress?(event: any): void;
+  onKeyPressRemove?(event: any): void;
   handleMoreInfo?(): void;
   key?: any;
   markedForDelete?: boolean;
@@ -65,7 +67,7 @@ class Chip extends React.PureComponent<Props, any> {
         {
           clickable
             ?
-            <a onClick={this.props.onClick} aria-disabled={false} tabIndex={0}>
+            <a onClick={this.props.onClick} onKeyPress={this.props.onKeyPress} aria-disabled={false} tabIndex={0}>
                 {chipContents}
             </a>
             :
@@ -74,7 +76,7 @@ class Chip extends React.PureComponent<Props, any> {
         {
           removable
               ?
-              <button type="button" className={theme.Remove} aria-label="Remove" onClick={this.props.onRemove}>
+              <button type="button" className={theme.Remove} aria-label="Remove" onClick={this.props.onRemove} onKeyPress={this.props.onKeyPressRemove}>
                   <span aria-hidden="true">×</span>
               </button>
               : ''
