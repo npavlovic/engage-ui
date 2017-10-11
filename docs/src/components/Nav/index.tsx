@@ -9,6 +9,7 @@ const Nav = () => {
       <ul>
         <li><IndexLink to="/">Home</IndexLink></li>
         <li><Link to="/component/choicelist" className={styles.active}>Choice List Component</Link></li>
+        <li><Link to="/component/accessibility">Accessibility</Link></li>
         <li><Link to="/component/panel">Panel Component</Link></li>
         <li><Link to="/component/chip">Chip Component</Link></li>
         <li><Link to="/component/validatedform">ValidatedForm Component</Link></li>
