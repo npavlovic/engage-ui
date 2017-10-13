@@ -3,6 +3,8 @@ import PanelExampleFirst from '../../examples/PanelExample/PanelExampleFirst';
 
 const PanelExampleCodeFirst = require('!raw-loader!../../examples/PanelExample/PanelExampleFirst') as string;
 
+// console.log('PanelExampleCodeFirst:', PanelExampleCodeFirst);
+
 const PanelState: IDocument = {
   id: 'panel',
   heading: 'Panel Component',
